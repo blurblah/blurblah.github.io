@@ -4,6 +4,7 @@ title:  Cortana skill problems
 date:   2017-12-04 18:34 +0900
 categories: cortana skill problem
 ---
+1주일 정도 cortana skill 만들면서 PoC 한 결과  
 <h4>Card UI</h4>
 Cortana skill에서 response로 내려줄 수 있는 항목 중 card가 있음.  
 Card의 종류는 hero, audio, signin 등 여러가지가 있으나 이 중 audio, signin이 특정 플랫폼에서 제대로 동작하지 않음.  
