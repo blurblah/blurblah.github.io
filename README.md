@@ -1,5 +1,4 @@
 # blurblah.github.io
----
 ### Deprecated
 
 This repo is deprecated and migrated to gitbook.
