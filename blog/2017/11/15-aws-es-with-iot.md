@@ -4,6 +4,7 @@ title: AWS ES with IoT
 date: 2017-11-15T23:10:42+09:00
 authors: blurblah
 tags: [aws, elasticsearch, iot]
+enableComments: true
 ---
 
 ## AWS ES(Elasticsearch Service)
