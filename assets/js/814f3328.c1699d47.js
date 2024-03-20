@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"AWS ES with IoT","permalink":"/blog/aws-es-with-iot","unlisted":false}]}')}}]);
