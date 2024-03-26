@@ -6,7 +6,7 @@ import GiscusComponent from '@site/src/components/GiscusComponent';
 export default function BlogPostItemWrapper(props) {
   const { metadata, isBlogPostPage } = useBlogPost()
   const { frontMatter, slug, title } = metadata
-  const { enableComments } = frontMatter
+  const { enableComments = true } = frontMatter
 
   return (
     <>
