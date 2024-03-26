@@ -1,15 +1,16 @@
 ---
-layout: post
-title:  Ansible warnings and tips
-date:   2017-12-11 19:34 +0900
-categories: ansible warning tip
+slug: ansible-warnings-and-tips
+title: Ansible warnings and tips
+date: 2017-12-11T19:34:00+09:00
+tags: [ansible, warning, tip]
+enableComments: true
 ---
-<h4>Variables in conditions</h4>
+
+# Variables in conditions
 when 구문에서 변수는 따옴표를 포함해 이중 중괄호로 묶을 필요가 없음  
 묶어서 사용할 경우 warning 발생
 
-{% highlight yaml %}
-{% raw %}
+```
 # Warning
 - name: check distribution
   fail:
@@ -18,18 +19,16 @@ when 구문에서 변수는 따옴표를 포함해 이중 중괄호로 묶을 �
 
 # Fixed
   when: ansible_distribution != 'Ubuntu'
-{% endraw %}
-{% endhighlight %}
+```
 
-<h4>register & set_fact</h4>
-Playbook에 정의된 variable을 task에서 사용할 때 <strong>register</strong>로 재정의가 안됨  
-<strong>set_fact</strong> module을 사용하는 경우 재정의 가능
+# register & set_fact
+Playbook에 정의된 variable을 task에서 사용할 때 **register**로 재정의가 안됨  
+**set_fact** module을 사용하는 경우 재정의 가능
 
-<h4>Warning in loop</h4>
+# Warning in loop
 apt module 사용시 with_items로 반복 설치하도록 해두었는데 외부에서 가져온 변수는 사용하지 말라는 warning 발생함(deprecate 예정)  
 이해가 잘 되지는 않지만 아래처럼 변경했더니 warning 사라짐
-{% highlight yaml %}
-{% raw %}
+```yaml
 # Warning
 - name: Install packages
   apt: "{{ item }}"
@@ -49,5 +48,4 @@ apt module 사용시 with_items로 반복 설치하도록 해두었는데 외부
     - curl
     - software-properties-common
     - "{{ docker_package }}"
-{% endraw %}
-{% endhighlight %}
+```
