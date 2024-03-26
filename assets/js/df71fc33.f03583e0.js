@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[62],{56613:l=>{l.exports=JSON.parse('{"label":"sqlyog","permalink":"/tags/sqlyog","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

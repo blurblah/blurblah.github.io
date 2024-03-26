@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="blog-wrapper blog-post-page plugin-blog plugin-id-default" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.1">
+<title data-rh="true">Ceph을 설치해보자 | My Site</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://blurblah.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://blurblah.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://blurblah.github.io/2016/08/02/wp/ceph을-설치해보자"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="Ceph을 설치해보자 | My Site"><meta data-rh="true" name="description" content="Ceph cluster 구성을 할 때 가장 중요한 요소는 ceph monitor와 osd 이다. &quot;Ceph 가볍게 살펴보기&quot;에서 기술한 것처럼 osd는 실제 object 저장을 담당하고 monitor는 node의 상태 확인이나 cluster map 정보를 담고 있기 때문. 공식 문서에 있는 설치 방법은 manual과 ceph-deploy라는 자동화 스크립트를 이용하는 방법으로 나뉘어 있는데 ceph-deploy를 사용해 보기로 했다. 공식 문서에 누락된 내용도 있고 ceph-deploy 스크립트 자체에 문제도 있는 것 같아서 함께 기술할 생각이다."><meta data-rh="true" property="og:description" content="Ceph cluster 구성을 할 때 가장 중요한 요소는 ceph monitor와 osd 이다. &quot;Ceph 가볍게 살펴보기&quot;에서 기술한 것처럼 osd는 실제 object 저장을 담당하고 monitor는 node의 상태 확인이나 cluster map 정보를 담고 있기 때문. 공식 문서에 있는 설치 방법은 manual과 ceph-deploy라는 자동화 스크립트를 이용하는 방법으로 나뉘어 있는데 ceph-deploy를 사용해 보기로 했다. 공식 문서에 누락된 내용도 있고 ceph-deploy 스크립트 자체에 문제도 있는 것 같아서 함께 기술할 생각이다."><meta data-rh="true" property="og:type" content="article"><meta data-rh="true" property="article:published_time" content="2016-08-02T00:00:00.000Z"><meta data-rh="true" property="article:tag" content="ceph,ceph-activate-permission-denied,ceph-설정,ceph-설치,강좌"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://blurblah.github.io/2016/08/02/wp/ceph을-설치해보자"><link data-rh="true" rel="alternate" href="https://blurblah.github.io/2016/08/02/wp/ceph을-설치해보자" hreflang="en"><link data-rh="true" rel="alternate" href="https://blurblah.github.io/2016/08/02/wp/ceph을-설치해보자" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="My Site RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/atom.xml" title="My Site Atom Feed"><link rel="stylesheet" href="/assets/css/styles.87564fa0.css">
+<script src="/assets/js/runtime~main.e36f3c5d.js" defer="defer"></script>
+<script src="/assets/js/main.dfb2dcc2.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">My Site</b></a><a class="navbar__item navbar__link" href="/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/">Blog</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/blurblah" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="container margin-vert--lg"><div class="row"><aside class="col col--3"><nav class="sidebar_re4s thin-scrollbar" aria-label="Blog recent posts navigation"><div class="sidebarItemTitle_pO2u margin-bottom--md">Recent posts</div><ul class="sidebarItemList_Yudw clean-list"><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/2020/01/20/wp/kubernetes에서-특정-node에-pod가-배포되는-현상에-대한-분석">Kubernetes에서 특정 node에 pod가 배포되는 현상에 대한 분석</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/2018/08/14/wp/kubernetes-with-aws-api-gateway">Kubernetes with AWS API gateway</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/2018/06/09/wp/날씨-정보를-편하게-받아볼까-해서-시작한-일들">날씨 정보를 편하게 받아볼까 해서 시작한 일들</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/2018/05/27/wp/xiaomi-센서로-실내-온도를-측정해서-influxdb에-저장하고-grafana로-그">Xiaomi 센서로 실내 온도를 측정해서 InfluxDB에 저장하고 Grafana로 그린다</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/2018/05/17/wp/snmp를-통한-asus-공유기-모니터링-시작하기">SNMP를 통한 ASUS 공유기  모니터링 시작하기</a></li></ul></nav></aside><main class="col col--7" itemscope="" itemtype="https://schema.org/Blog"><article itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting"><meta itemprop="description" content="Ceph cluster 구성을 할 때 가장 중요한 요소는 ceph monitor와 osd 이다. &quot;Ceph 가볍게 살펴보기&quot;에서 기술한 것처럼 osd는 실제 object 저장을 담당하고 monitor는 node의 상태 확인이나 cluster map 정보를 담고 있기 때문. 공식 문서에 있는 설치 방법은 manual과 ceph-deploy라는 자동화 스크립트를 이용하는 방법으로 나뉘어 있는데 ceph-deploy를 사용해 보기로 했다. 공식 문서에 누락된 내용도 있고 ceph-deploy 스크립트 자체에 문제도 있는 것 같아서 함께 기술할 생각이다."><header><h1 class="title_f1Hy" itemprop="headline">Ceph을 설치해보자</h1><div class="container_mt6G margin-vert--md"><time datetime="2016-08-02T00:00:00.000Z" itemprop="datePublished">August 2, 2016</time> · <!-- -->10 min read</div></header><div id="__blog-post-container" class="markdown" itemprop="articleBody"><p>Ceph cluster 구성을 할 때 가장 중요한 요소는 ceph monitor와 osd 이다. &quot;<a href="http://192.168.10.23:8088/1298" target="_blank" rel="noopener noreferrer">Ceph 가볍게 살펴보기</a>&quot;에서 기술한 것처럼 osd는 실제 object 저장을 담당하고 monitor는 node의 상태 확인이나 cluster map 정보를 담고 있기 때문. 공식 문서에 있는 설치 방법은 manual과 ceph-deploy라는 자동화 스크립트를 이용하는 방법으로 나뉘어 있는데 ceph-deploy를 사용해 보기로 했다. 공식 문서에 누락된 내용도 있고 ceph-deploy 스크립트 자체에 문제도 있는 것 같아서 함께 기술할 생각이다.</p>
+<p>참고 : <a href="http://docs.ceph.com/docs/master/start/quick-ceph-deploy/" target="_blank" rel="noopener noreferrer">ceph-deploy를 사용한 Ceph 설치 공식 문서</a></p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-준비">1. 준비<a href="#1-준비" class="hash-link" aria-label="Direct link to 1. 준비" title="Direct link to 1. 준비">​</a></h4>
+<p>(1) VM</p>
+<p>실제 꼭 필요한 것은 아니지만 ceph-deploy로 각 node를 관리하기 위한 ceph-admin과 cluster를 구성할 ceph-node01, ceph-node02 총 3대의 VM (Ubuntu 14.04)을 준비했다.</p>
+<p>(2) SSH / hosts 설정</p>
+<p>편의를 위해 ~/.ssh/config에 각 node의 Hostname, User 등록.</p>
+<p>ceph-deploy가 일부 설정에서 각 node의 실제 hostname을 가지고 파일을 생성하거나 처리하는 경우가 있고 host 인식을 위해 /etc/hosts에 실제 cluster node의 hostname과 IP를 등록해둔다. 아래는 ceph-admin에서 지정한 hostname이 실제 node의 hostname과 달라서 생기는 오류 (admin node에서 하위 node의 hostname을 node1이라고 지정했을 때 ceph-deploy가 ceph-mon.node1.asok 파일을 찾으려고 하지만 실제 그 경로에 가보면 ceph-mon-ceph-node01.asok 파일이 생성되어 있었다)</p>
+<p><a href="https://blurblah.net/wp-content/uploads/2016/08/ceph-install-host-error.png" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" alt="ceph-install-host-error" src="/assets/images/ceph-install-host-error-dacf6ff6641c0fd345e525d414d8e376.png" width="697" height="501" class="img_ev3q"></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-ceph-deploy-설치">2. ceph-deploy 설치<a href="#2-ceph-deploy-설치" class="hash-link" aria-label="Direct link to 2. ceph-deploy 설치" title="Direct link to 2. ceph-deploy 설치">​</a></h4>
+<p>ceph-admin에서 아래의 command로 설치하면 되는데 hammer (ceph release name)라고 지정해도 이후 ceph 설치과정에서 ceph-deploy가 repository를 자동으로 최신인 jewel로 변경해버린다.</p>
+<p>[bash]</p>
+<p>wget -q -O- &#x27;<a href="https://download.ceph.com/keys/release.asc" target="_blank" rel="noopener noreferrer">https://download.ceph.com/keys/release.asc</a>&#x27; | sudo apt-key add -</p>
+<p>echo deb <a href="http://download.ceph.com/debian-hammer/" target="_blank" rel="noopener noreferrer">http://download.ceph.com/debian-hammer/</a> $(lsb_release -sc) main | sudo tee /etc/apt/sources.list.d/ceph.list</p>
+<p>sudo apt-get update &amp;&amp; sudo apt-get install ceph-deploy</p>
+<p>[/bash]</p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="3-ntp--openssh-server-설치">3. ntp / openssh-server 설치<a href="#3-ntp--openssh-server-설치" class="hash-link" aria-label="Direct link to 3. ntp / openssh-server 설치" title="Direct link to 3. ntp / openssh-server 설치">​</a></h4>
+<p>Ubuntu 14.04 설치했을 때 이미 ntp와 openssh-server가 설치된 상태였지만 혹시 설치되지 않은 상태라면 설치해둔다. (NTP는 각 node간 시간 동기를 위해 필요하다고 가이드 하고있음)</p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="4-ceph-user-추가">4. Ceph user 추가<a href="#4-ceph-user-추가" class="hash-link" aria-label="Direct link to 4. Ceph user 추가" title="Direct link to 4. Ceph user 추가">​</a></h4>
+<p>공식문서에는 ceph 설치와 관리를 위한 별도 user를 생성하라고 되어 있고 보안 및 기타 이유로 ceph이라는 이름은 사용하지 말라고 명시되어 있어서 cephuser라는 이름으로 사용자를 생성하고 sudoer로 등록했으나 실제 파일 생성 등의 작업은 ceph이라는 사용자로 진행이 되는 것으로 보인다.  아래의 command를 이용하거나 별도의 방법으로 모든 node에서 user 추가 (home 디렉토리는 추가되어야 함)</p>
+<p>[bash]</p>
+<p>sudo useradd -d /home/cephuser -m cephuser</p>
+<p>sudo passwd cephuser</p>
+<p># set password</p>
+<p> </p>
+<p>echo &quot;cephuser ALL = (root) NOPASSWD<!-- -->:ALL<!-- -->&quot; | sudo tee /etc/sudoers.d/cephuser</p>
+<p>sudo chmod 440 /etc/sudoers.d/cephuser</p>
+<p>[/bash]</p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="5-ssh-keygen--공개키-복사">5. SSH keygen / 공개키 복사<a href="#5-ssh-keygen--공개키-복사" class="hash-link" aria-label="Direct link to 5. SSH keygen / 공개키 복사" title="Direct link to 5. SSH keygen / 공개키 복사">​</a></h4>
+<p>ceph-deploy가 사용할 때가 있으므로 ceph-admin의 ssh keypair를 생성하고 각 node에 복사해준다.</p>
+<p>[bash]</p>
+<p>ssh-keygen</p>
+<p>ssh-copy-id cephuser@ceph-node01</p>
+<p>ssh-copy-id cephuser@ceph-node02</p>
+<p>[/bash]</p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="6-network--firewall-설정-optional">6. Network / firewall 설정 (Optional)<a href="#6-network--firewall-설정-optional" class="hash-link" aria-label="Direct link to 6. Network / firewall 설정 (Optional)" title="Direct link to 6. Network / firewall 설정 (Optional)">​</a></h4>
+<p>Public network, cluster (internal) network으로 분리해서 설정하는 내용이 문서에 있으나 내부 IP로만 연결할 생각이어서 별도 조치없이 넘어감</p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="7-ceph-deploy가-사용할-디렉토리-생성">7. ceph-deploy가 사용할 디렉토리 생성<a href="#7-ceph-deploy가-사용할-디렉토리-생성" class="hash-link" aria-label="Direct link to 7. ceph-deploy가 사용할 디렉토리 생성" title="Direct link to 7. ceph-deploy가 사용할 디렉토리 생성">​</a></h4>
+<p>현재의 working directory에서 ceph-deploy가 필요한 파일들을 생성하고 가져오므로 별도 디렉토리를 만들고 그 안에서 ceph-deploy를 실행하는게 좋다.</p>
+<p>[bash]</p>
+<p>mkdir cluster &amp;&amp; cd cluster</p>
+<p>[/bash]</p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="8-monitor-node-생성--pool-size-설정">8. Monitor node 생성 / pool size 설정<a href="#8-monitor-node-생성--pool-size-설정" class="hash-link" aria-label="Direct link to 8. Monitor node 생성 / pool size 설정" title="Direct link to 8. Monitor node 생성 / pool size 설정">​</a></h4>
+<p>Monitor가 돌아갈 node를 지정하는 내용으로 편의상 ceph-node01만 지정 (나중에 추가도 가능)</p>
+<p>[bash]</p>
+<p>ceph-deploy new ceph-node01</p>
+<p>[/bash]</p>
+<p>이 과정을 거치면 working directory에 ceph.conf 파일이 생성되는데 osd pool 크기를 지정해줘야 한다. osd 하나에 파일을 저장하고 하나는 replicate 용도로 사용할거라 2로 지정</p>
+<p>[bash]</p>
+<p># add this in global section of ceph.conf</p>
+<p>osd pool default size = 2</p>
+<p>[/bash]</p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="9-ceph-설치">9. Ceph 설치<a href="#9-ceph-설치" class="hash-link" aria-label="Direct link to 9. Ceph 설치" title="Direct link to 9. Ceph 설치">​</a></h4>
+<p>이제 ceph과 관련된 것들을 설치하는 과정을 수행하면 된다. Admin node에서 설치할 node를 지정할 수 있는데 아래처럼 admin node 포함 전체 node에 설치하도록 했다. (이 과정인지 다른 과정에서 자동으로 ceph repository가 최신인 jewel로 변경되는데 release 등의 option이 있어서 다른 버전 설치가 가능한 것처럼 보이지만 실제 option을 줘서 hammer로 강제 설정한 결과 오류 발생)</p>
+<p>[bash]</p>
+<p>ceph-deploy install ceph-admin ceph-node01 ceph-node02</p>
+<p>[/bash]</p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="10-monitor-초기화">10. Monitor 초기화<a href="#10-monitor-초기화" class="hash-link" aria-label="Direct link to 10. Monitor 초기화" title="Direct link to 10. Monitor 초기화">​</a></h4>
+<p>Ceph까지 설치했으면 monitor 초기화를 해야 한다.</p>
+<p>[bash]</p>
+<p>ceph-deploy mon create-initial</p>
+<p>[/bash]</p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="11-osd-설정">11. OSD 설정<a href="#11-osd-설정" class="hash-link" aria-label="Direct link to 11. OSD 설정" title="Direct link to 11. OSD 설정">​</a></h4>
+<p>(1) OSD가 사용할 경로 추가</p>
+<p>OSD가 돌아갈 각 node에서  osd가 사용할 경로를 추가해준다. 여기서 중요한게 뒤에 있는 숫자를 임의의 숫자로 변경하면 나중에 activate 과정에서 오류가 발생한다. Manual 설치 과정을 잠깐 봤을 때 osd node 각각에 순서대로 숫자를 부여해서 그 숫자를 이용해 내부적으로 뭔가 작업을 하는 것 같은데 잘 이해가 안되는 부분이다.</p>
+<p>[bash]</p>
+<p># in ceph-node01</p>
+<p>sudo mkdir /var/local/osd0</p>
+<p> </p>
+<p># in ceph-node02</p>
+<p>sudo mkdir /var/local/osd1</p>
+<p>[/bash]</p>
+<p>(2) Prepare osd</p>
+<p>이제 osd를 준비하는 초기화 과정인데 ceph-admin에서 아래의 command를 실행한 후 메세지를 유심히 보면 생성하는 몇 개 파일의 owner를 변경하는 과정을 확인할 수 있다.</p>
+<p>[bash]</p>
+<p>ceph-deploy osd prepare ceph-node01:/var/local/osd0 ceph-node02:/var/local/osd1</p>
+<p>[/bash]</p>
+<p><a href="https://blurblah.net/wp-content/uploads/2016/08/ceph-chown.png" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" alt="ceph-chown" src="/assets/images/ceph-chown-72aba04686ee0d58de057b1093e441df.png" width="697" height="501" class="img_ev3q"></a>(3) Activate osd</p>
+<p>(Activate 하기 전에 각 osd path의 owner, group을 ceph으로 변경해주어야 함)</p>
+<p>[bash]</p>
+<p># in nodes</p>
+<p>sudo chown -R ceph<!-- -->:ceph<!-- --> /var/local/osdX</p>
+<p>[/bash]</p>
+<p>위 그림처럼 일부 파일의 owner 설정과정을 언급한 이유는 activate 과정에서 오류가 발생하기 때문인데</p>
+<p><a href="https://blurblah.net/wp-content/uploads/2016/08/ceph-osd-permission-error.png" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" alt="ceph-osd-permission-error" src="/assets/images/ceph-osd-permission-error-2d0444ac99899063a56e23df1cd806f0.png" width="697" height="501" class="img_ev3q"></a>재미있는게 아래 그림에서처럼 ceph-deploy가 몇 개 파일만 owner 지정을 자동으로 하고 디렉토리 자체는 생성했  을 때의 사용자 소유로 그대로 두고 있어서 권한 문제가 발생할 수 밖에 없다. (공식 문서에서 누락된 내용이기도 하고 스크립트 자체가 문제가 있다고 보여짐)</p>
+<p><a href="https://blurblah.net/wp-content/uploads/2016/08/ceph-osd-path-permission.png" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" alt="ceph-osd-path-permission" src="/assets/images/ceph-osd-path-permission-1745d81cdf11d25461def983b39a397a.png" width="697" height="501" class="img_ev3q"></a>그렇기 때문에 사전에 osd가 사용할 경로의 owner를 변경해주는게 꼭 필요하다. Activate은 아래의 command 실행</p>
+<p>[bash]</p>
+<p>ceph-deploy osd activate ceph-node01:/var/local/osd0 ceph-node02:/var/local/osd1</p>
+<p>[/bash]</p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="12-node-설정-및-keyring-파일-복사">12. Node 설정 및 keyring 파일 복사<a href="#12-node-설정-및-keyring-파일-복사" class="hash-link" aria-label="Direct link to 12. Node 설정 및 keyring 파일 복사" title="Direct link to 12. Node 설정 및 keyring 파일 복사">​</a></h4>
+<p>ceph-admin에서 아래의 command를 실행하면 각 설정 및 keyring 등 필요한 파일이 /etc/ceph 경로에 복사되는데 그 후에 keyring 파일의 읽기 권한을 추가해줘야 한다.</p>
+<p>[bash]</p>
+<p>ceph-deploy admin ceph-admin ceph-node01 ceph-node02</p>
+<p>sudo chmod +r /etc/ceph/ceph.client.admin.keyring</p>
+<p>[/bash]</p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="13-health-check">13. Health check<a href="#13-health-check" class="hash-link" aria-label="Direct link to 13. Health check" title="Direct link to 13. Health check">​</a></h4>
+<p>기본 설정은 다 완료된 것이므로 각 node와 osd가 정상인지 ceph-admin에서 확인해본다. HEALTH_OK가 나오면 정상.</p>
+<p>[bash]</p>
+<p>ceph health</p>
+<p>[/bash]</p>
+<p> </p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="14-결론">14. 결론<a href="#14-결론" class="hash-link" aria-label="Direct link to 14. 결론" title="Direct link to 14. 결론">​</a></h4>
+<p>ceph-deploy를 사용한 설치는 몇가지 문제가 있는 것으로 보이기 때문에 이후에 manual로 설치를 다시 해서 과정이나 기타 내용들을 좀 더 깊게 살펴본 후에 가능한 자동화까지 진행해보는게 좋을 것 같다. 또 확장이 용이한지 문제가 발생했을 때 복구 같은 것들은 어떻게 할 수 있는지 performance 측면에서 쓸만한지 등의 내용도 검토해볼 필요가 있겠다.</p></div><footer class="row docusaurus-mt-lg blogPostFooterDetailsFull_mRVl"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/tags/ceph">ceph</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/tags/ceph-activate-permission-denied">ceph-activate-permission-denied</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/tags/ceph-설정">ceph-설정</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/tags/ceph-설치">ceph-설치</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/tags/강좌">강좌</a></li></ul></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/2016/08/02/wp/ceph-가볍게-살펴보기"><div class="pagination-nav__sublabel">Newer Post</div><div class="pagination-nav__label">Ceph 가볍게 살펴보기</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/2016/04/18/wp/mybatis와-싸우면서-얻은-것들"><div class="pagination-nav__sublabel">Older Post</div><div class="pagination-nav__label">MyBatis와 싸우면서 얻은 것들</div></a></nav></main><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"></div></div></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

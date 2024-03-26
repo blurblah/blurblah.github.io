@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[24337],{27199:e=>{e.exports=JSON.parse('{"label":"objective-c","permalink":"/tags/objective-c","allTagsPath":"/tags","count":9,"unlisted":false}')}}]);

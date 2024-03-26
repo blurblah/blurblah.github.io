@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[38801],{906:e=>{e.exports=JSON.parse('{"label":"prometheus","permalink":"/tags/prometheus","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

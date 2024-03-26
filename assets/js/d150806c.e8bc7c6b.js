@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[64852],{83252:s=>{s.exports=JSON.parse('{"label":"permission","permalink":"/tags/permission","allTagsPath":"/tags","count":2,"unlisted":false}')}}]);

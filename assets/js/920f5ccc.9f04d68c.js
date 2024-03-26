@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[79366],{72656:s=>{s.exports=JSON.parse('{"label":"inetaddress","permalink":"/tags/inetaddress","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

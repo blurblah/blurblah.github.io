@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[44490],{45025:u=>{u.exports=JSON.parse('{"label":"kr-archive-ubuntu-com","permalink":"/tags/kr-archive-ubuntu-com","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

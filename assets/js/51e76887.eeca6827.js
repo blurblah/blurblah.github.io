@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[5044],{68116:s=>{s.exports=JSON.parse('{"label":"scp","permalink":"/tags/scp","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

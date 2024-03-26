@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[49514],{70476:l=>{l.exports=JSON.parse('{"label":"spring-cloud-config","permalink":"/tags/spring-cloud-config","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

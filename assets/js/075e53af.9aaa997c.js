@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[52419],{21053:a=>{a.exports=JSON.parse('{"label":"bash","permalink":"/tags/bash","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

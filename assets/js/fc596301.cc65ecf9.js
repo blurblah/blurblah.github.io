@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[44928],{91341:e=>{e.exports=JSON.parse('{"label":"telepot-changelog","permalink":"/tags/telepot-changelog","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

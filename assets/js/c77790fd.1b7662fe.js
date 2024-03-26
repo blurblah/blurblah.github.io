@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[95122],{95334:e=>{e.exports=JSON.parse('{"label":"networkinterface","permalink":"/tags/networkinterface","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

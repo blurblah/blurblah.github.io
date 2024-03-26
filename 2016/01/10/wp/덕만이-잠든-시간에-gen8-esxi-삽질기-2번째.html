@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="blog-wrapper blog-post-page plugin-blog plugin-id-default" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.1">
+<title data-rh="true">덕만이 잠든 시간에 – Gen8 esxi 삽질기 2번째 | My Site</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://blurblah.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://blurblah.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://blurblah.github.io/2016/01/10/wp/덕만이-잠든-시간에-gen8-esxi-삽질기-2번째"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="덕만이 잠든 시간에 – Gen8 esxi 삽질기 2번째 | My Site"><meta data-rh="true" name="description" content="지난번에 2주 정도 고생(덕만이 잠든 시간에 - Gen8 esxi 삽질기)하고 된다고 생각했는데 착각이었다."><meta data-rh="true" property="og:description" content="지난번에 2주 정도 고생(덕만이 잠든 시간에 - Gen8 esxi 삽질기)하고 된다고 생각했는데 착각이었다."><meta data-rh="true" property="og:type" content="article"><meta data-rh="true" property="article:published_time" content="2016-01-10T00:00:00.000Z"><meta data-rh="true" property="article:tag" content="ahci-driver,esxi,fail,gen8,spp"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://blurblah.github.io/2016/01/10/wp/덕만이-잠든-시간에-gen8-esxi-삽질기-2번째"><link data-rh="true" rel="alternate" href="https://blurblah.github.io/2016/01/10/wp/덕만이-잠든-시간에-gen8-esxi-삽질기-2번째" hreflang="en"><link data-rh="true" rel="alternate" href="https://blurblah.github.io/2016/01/10/wp/덕만이-잠든-시간에-gen8-esxi-삽질기-2번째" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="My Site RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/atom.xml" title="My Site Atom Feed"><link rel="stylesheet" href="/assets/css/styles.87564fa0.css">
+<script src="/assets/js/runtime~main.e36f3c5d.js" defer="defer"></script>
+<script src="/assets/js/main.dfb2dcc2.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">My Site</b></a><a class="navbar__item navbar__link" href="/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/">Blog</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/blurblah" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="container margin-vert--lg"><div class="row"><aside class="col col--3"><nav class="sidebar_re4s thin-scrollbar" aria-label="Blog recent posts navigation"><div class="sidebarItemTitle_pO2u margin-bottom--md">Recent posts</div><ul class="sidebarItemList_Yudw clean-list"><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/2020/01/20/wp/kubernetes에서-특정-node에-pod가-배포되는-현상에-대한-분석">Kubernetes에서 특정 node에 pod가 배포되는 현상에 대한 분석</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/2018/08/14/wp/kubernetes-with-aws-api-gateway">Kubernetes with AWS API gateway</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/2018/06/09/wp/날씨-정보를-편하게-받아볼까-해서-시작한-일들">날씨 정보를 편하게 받아볼까 해서 시작한 일들</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/2018/05/27/wp/xiaomi-센서로-실내-온도를-측정해서-influxdb에-저장하고-grafana로-그">Xiaomi 센서로 실내 온도를 측정해서 InfluxDB에 저장하고 Grafana로 그린다</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/2018/05/17/wp/snmp를-통한-asus-공유기-모니터링-시작하기">SNMP를 통한 ASUS 공유기  모니터링 시작하기</a></li></ul></nav></aside><main class="col col--7" itemscope="" itemtype="https://schema.org/Blog"><article itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting"><meta itemprop="description" content="지난번에 2주 정도 고생(덕만이 잠든 시간에 - Gen8 esxi 삽질기)하고 된다고 생각했는데 착각이었다."><header><h1 class="title_f1Hy" itemprop="headline">덕만이 잠든 시간에 – Gen8 esxi 삽질기 2번째</h1><div class="container_mt6G margin-vert--md"><time datetime="2016-01-10T00:00:00.000Z" itemprop="datePublished">January 10, 2016</time> · <!-- -->10 min read</div></header><div id="__blog-post-container" class="markdown" itemprop="articleBody"><p>지난번에 2주 정도 고생(<a href="http://192.168.10.23:8088/1222" target="_blank" rel="noopener noreferrer">덕만이 잠든 시간에 - Gen8 esxi 삽질기</a>)하고 된다고 생각했는데 착각이었다.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-vt-d">1. VT-d<a href="#1-vt-d" class="hash-link" aria-label="Direct link to 1. VT-d" title="Direct link to 1. VT-d">​</a></h4>
+<p>HDD가 멈추는 듯한 현상이 지속적으로 발생됐다. 그것도 boot 완료된 시점에서 약 3분후.</p>
+<p>아는 분들의 도움으로 BIOS 설정이 잘못된 걸 알게 되었다.</p>
+<p><a href="https://software.intel.com/en-us/blogs/2009/06/25/understanding-vt-d-intel-virtualization-technology-for-directed-io" target="_blank" rel="noopener noreferrer">VT-d</a> 설정이 enable로 되어있었는데 현재 사용중인 CPU는 VT-d를 지원하지 않는다.</p>
+<p>G1610T 라는 Celeron CPU인데 제조사에서 안된다고 하니 잘못 설정한게 맞다.</p>
+<p><a href="http://ark.intel.com/products/71074/Intel-Celeron-Processor-G1610T-2M-Cache-2_30-GHz" target="_blank" rel="noopener noreferrer">http://ark.intel.com/products/71074/Intel-Celeron-Processor-G1610T-2M-Cache-2_30-GHz</a></p>
+<p><img decoding="async" loading="lazy" alt="esxi-vt-d" src="/assets/images/esxi-vt-d-cfd8872d11ff243b4b51b7a2684b1030.png" width="841" height="589" class="img_ev3q"></p>
+<p>BIOS 설정을 공장초기화한 값이 enable로 되어있는게 이해되지 않지만 그래도 제대로 설정.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-sata-ahci-vs-sata-legacy">2. SATA AHCI vs SATA Legacy<a href="#2-sata-ahci-vs-sata-legacy" class="hash-link" aria-label="Direct link to 2. SATA AHCI vs SATA Legacy" title="Direct link to 2. SATA AHCI vs SATA Legacy">​</a></h4>
+<p>VT-d 설정을 변경하고 설치를 다시 진행해봤는데 해결되기를 기대했지만 문제는 여전했다.</p>
+<p>현상 만으로는 알 수가 없어서 로그를 뒤져보기로 했다. (이 때부터 커널로그를 보기 시작했다)</p>
+<p><a href="https://blurblah.net/wp-content/uploads/2016/01/esxi-ahci-failed.png" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" alt="esxi-ahci-failed" src="/assets/images/esxi-ahci-failed-1024x856-74637f323990ea5fa6afcbd9970d7b4d.png" width="1024" height="856" class="img_ev3q"></a></p>
+<p>Failed, Driver ahci, for vmhba0 라는 부분이 반복되는 걸 알 수 있었다.</p>
+<p>AHCI driver 로딩하는데 뭔가 문제가 있는 것 같아서 vmware 자료들을 뒤져봤는데 내 상황에서 특별히 조치할만한게 없었다.</p>
+<p>(<a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=2000641" target="_blank" rel="noopener noreferrer">http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=2000641 외 기타</a>)</p>
+<p><a href="http://www.v-front.de/2013/11/how-to-make-your-unsupported-sata-ahci.html" target="_blank" rel="noopener noreferrer">이런 내용</a>도 있었는데 지원안하는 드라이버가 아니었기 때문에 역시 조치할 수 없었다.</p>
+<p>드라이버 문제라는 걸 확실히 하기 위해 BIOS setting에서 AHCI 대신 SATA Legacy (IDE 타입의 구형 HDD를 지원하기 위  한 내용으로 보인다)를 선택해서 다시 설치를 해보니 문제 해결.</p>
+<p>드라이버 문제가 맞다는 확신을 가지고 HDD 등록하고 이런저런 작업을 더 진행해보니 이번엔 너무 느린게 문제였다.</p>
+<p>느낌으론 속도가 일반적인 경우에 비해 1/10 또는 그 이상 느린 것 같았다.</p>
+<p>순간 &#x27;버릴까?&#x27; 생각했다.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="3-service-pack-for-proliant-설치">3. Service Pack for Proliant 설치<a href="#3-service-pack-for-proliant-설치" class="hash-link" aria-label="Direct link to 3. Service Pack for Proliant 설치" title="Direct link to 3. Service Pack for Proliant 설치">​</a></h4>
+<p>목표가 좀 더 뚜렷해졌다.</p>
+<p>&quot;AHCI controller를 사용하면서 ESXi를 올린다&quot;</p>
+<p>다시 원래대로 돌아가 AHCI driver 로딩에 문제가 발생하는 상황에서 이런저런 내용을 살펴보니 할 게 하나 생겼다.</p>
+<p>SPP (Service Pack for Proliant) 업데이트를 안해봤으니 그걸 해보기로 했다.</p>
+<p>최신버전이 2015년 10월에 나온 것 같은데 업데이트 해보니 오! 몇 개 system firmware가 업데이트 된다.</p>
+<p>하지만 기대했던 AHCI driver는 업데이트 되지 않았다.</p>
+<p>초기 로딩화면에 AHCI 버전이 나오는데 HDD에 대한 드라이버는 0.90 버전이 ODD에 대한 드라이버로 0.84 버전이 로딩되는 것처럼 보인다.</p>
+<p><a href="https://blurblah.net/wp-content/uploads/2016/01/esxi-spp.png" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" alt="esxi-spp" src="/assets/images/esxi-spp-1024x868-bd4ce1ce197b956e72107c32c019470f.png" width="1024" height="868" class="img_ev3q"></a></p>
+<p>이해 안된다. 그리고 뭔가 잘못 관리되는 듯한 인상을 받았다.</p>
+<p>이 때부터 얘네 웹사이트에 올라와있는 파일들의 checksum 값을 확인하기 시작했다.</p>
+<p><a href="https://blurblah.net/wp-content/uploads/2016/01/esxi-spp-version.png" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" alt="esxi-spp-version" src="/assets/images/esxi-spp-version-6676714129ca0bc626afc35eea7ec8d8.png" width="568" height="59" class="img_ev3q"></a></p>
+<p>그래도 SPP 업데이트 후에 몇가지 달라졌다.</p>
+<p>(1) SD / USB 설치</p>
+<p>ESXi를 SD나 USB에 올리는게 계속 문제가 있었는데 SPP 업데이트 후에는 문제없이 잘 설치된다.</p>
+<p>(2) Kernel log</p>
+<p>AHCI driver 로딩이 안되는 듯한 로그가 사라졌다!!</p>
+<p>잘 되어야 할 것 같았는데 문제는 여전했다.</p>
+<p>다시 원점.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="4-hdd에-직접-설치">4. HDD에 직접 설치<a href="#4-hdd에-직접-설치" class="hash-link" aria-label="Direct link to 4. HDD에 직접 설치" title="Direct link to 4. HDD에 직접 설치">​</a></h4>
+<p>갑자기 멈춘 시점의 커널로그를 보면 특이사항이 없었다.</p>
+<p>다만 vmware 측에서는 무시해도 되는 로그라고 하는 warning이 반복적으로 찍혔다.</p>
+<p>Scratch partition에 대한 내용인데 SD나 USB에 설치할 경우 시스템 로그가 저장된다는 scratch partition을 만들지 못하는데 없는 경우 ram disk에 저장하기 때문에 단순히 경고만 할 뿐 특별히 시스템에 문제는 주지 않는다고 한다.</p>
+<p>ESXi를 SD에 올리고 HDD를 추가한 후 reboot (boot 후 약 3분 후에 freeze 되고 HDD 추가할 때 쯤이면 시간이 얼마 없다)하고</p>
+<p>warning을 없애기 위해 HDD에 scratch partition 경로를 지정해줬다.</p>
+<p>그래도 문제는 해결되지 않았는데 아무래도 SD나 USB에 ESXi를 올리는게 불안해졌다.</p>
+<p>그리고 RAID 구성을 하지 않을거라 굳이 SD 등에 ESXi를 올릴 필요가 없다는 생각이 들었다.</p>
+<p>그래서 HDD에 ESXi를 직접 올리기로 했다.</p>
+<p>iLO의 remote console에서 가상드라이브 할당해서 해보니 이번엔 HDD 설치 도중 문제가 생긴다.</p>
+<p>(1) device or resource busy</p>
+<p>(2) 설치 도중 멈춤</p>
+<p>난 아무 작업을 하지 않았고 깨끗하게 포맷한건데 이랬다.</p>
+<p>이쯤에서 다시 한 번 버릴까 생각했다.</p>
+<p>그래도 포기하지 않고 Intelligent provisioning 기능으로 설치해보기로 했다.</p>
+<p>참고로 전혀 intelligent 하지 않다.</p>
+<p>USB에 여러 버전의 iso 이미지를 담아놓고 설치를 시도했다.</p>
+<p>ESXi 6.0 이미지는 intelligent provisioning에서 인식하지 않는다.</p>
+<p>ESXi 5.5, 5.1의 여러 버전중에서 최신 순으로 설치해봤다.</p>
+<p><a href="https://blurblah.net/wp-content/uploads/2016/01/esxi-hp-images.png" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" alt="esxi-hp-images" src="/assets/images/esxi-hp-images-1d0aba5575cd0f46d5751cc9a3a99ae8.png" width="413" height="534" class="img_ev3q"></a></p>
+<p>이미 SD나 USB로 여러번 반복했던 거였지만 HDD로 설치할 때는 조금씩 현상이 달랐다.</p>
+<p>예를 들어 5.5 U2는 device or resource busy 라는 메세지 때문에 설치를 시작조치 못했다.</p>
+<p>완전히 동일한 환경에서 설치 버전에 따라 문제가 나타나거나 그렇지 않다는 것은 뭔가 잘못 만든거다.</p>
+<p>결국 2014년에 배포된 것으로 보이는 5.5 U1 까지 내려가서야 설치가 완료되었다.</p>
+<p>그리고 그 버전 설치 이후에 더이상 문제는 발생하지 않았다.</p>
+<p>힘들었다.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="5-기타-문제점들">5. 기타 문제점들<a href="#5-기타-문제점들" class="hash-link" aria-label="Direct link to 5. 기타 문제점들" title="Direct link to 5. 기타 문제점들">​</a></h4>
+<p>HP의 문제인지 VMWare의 문제인지 모르겠지만 발견한 기타 문제점들은 아래와 같다.</p>
+<p>(1) SD/USB 사용시 scratch partition</p>
+<p><a href="http://blog.pasion.kr/esxi-warning-host-solution1/" target="_blank" rel="noopener noreferrer">http://blog.pasion.kr/esxi-warning-host-solution1/</a></p>
+<p>위에서 기술했던 내용이지만 SD나 USB에 ESXi 설치시 scratch partition을 만들지 않는다.</p>
+<p>SD나 USB에 여유공간이 많아도 절대 만들지 않는다.</p>
+<p><a href="https://blurblah.net/wp-content/uploads/2016/01/esxi-sd-partition.png" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" alt="esxi-sd-partition" src="/assets/images/esxi-sd-partition-977600204f17ab7092b07df3e753e19d.png" width="682" height="478" class="img_ev3q"></a>난 16GB짜리 micro SD를 사용했는데 (요즘 마트가면 16GB 이하 제품을 찾기 힘들다) 위 그림에서 몇백메가씩 잡혀있는 나머지 공간은 그냥 버리게 된다.</p>
+<p>(2) Driver 버전차이에 따른 문제들</p>
+<p>장비 특성상 수많은 controller들과 driver들이 있는건 알겠는데 각 driver 버전에 따른 문제점들이 많은 것 같다.</p>
+<p>이번에 내가 경험한 문제도 그런 문제 중 하나로 추측되고 인터넷에는 수많은 문제들이 보고되어 있다.</p>
+<p>(3) HP의 esxi custom image 관리</p>
+<p><a href="http://www8.hp.com/us/en/products/servers/solutions.html?compURI=1499005#tab=TAB4" target="_blank" rel="noopener noreferrer">http://www8.hp.com/us/en/products/servers/solutions.html?compURI=1499005#tab=TAB4</a></p>
+<p>이곳에 기록되어 있는 날짜를 신뢰할 수가 없었다.</p>
+<p>VMWare 어느 사이트에는 각 이미지별 release date가 위와는 달랐고 일부 해외 유저들이 기술한 문서와도 날짜가 달랐다.</p>
+<p>날짜와 Update 번호로는 알기가 너무 어려워서 결국은 Build number를 비교하면서 문서들을 읽었다.</p></div><footer class="row docusaurus-mt-lg blogPostFooterDetailsFull_mRVl"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/tags/ahci-driver">ahci-driver</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/tags/esxi">esxi</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/tags/fail">fail</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/tags/gen-8">gen8</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/tags/spp">spp</a></li></ul></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/2016/01/10/wp/덕만이-잠든-시간에-esxi-rdm-설정"><div class="pagination-nav__sublabel">Newer Post</div><div class="pagination-nav__label">덕만이 잠든 시간에 - ESXi RDM 설정</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/2015/12/21/wp/덕만이-잠든-시간에-gen8-삽질기"><div class="pagination-nav__sublabel">Older Post</div><div class="pagination-nav__label">덕만이 잠든 시간에 - Gen8 esxi 삽질기</div></a></nav></main><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"></div></div></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

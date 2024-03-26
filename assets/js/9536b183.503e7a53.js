@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[50322],{82092:a=>{a.exports=JSON.parse('{"label":"rt-ac68u","permalink":"/tags/rt-ac-68-u","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

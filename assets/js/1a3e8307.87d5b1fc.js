@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[87957],{5566:s=>{s.exports=JSON.parse('{"label":"regression-test","permalink":"/tags/regression-test","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

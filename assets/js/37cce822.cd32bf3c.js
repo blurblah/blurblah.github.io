@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[42476],{34664:a=>{a.exports=JSON.parse('{"label":"dhcp","permalink":"/tags/dhcp","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

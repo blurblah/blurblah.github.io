@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[62667],{14445:l=>{l.exports=JSON.parse('{"label":"uninstall","permalink":"/tags/uninstall","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[34128],{97035:s=>{s.exports=JSON.parse('{"label":"mysql-master-slave","permalink":"/tags/mysql-master-slave","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

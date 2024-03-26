@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[89619],{35075:a=>{a.exports=JSON.parse('{"label":"dynamic-routing","permalink":"/tags/dynamic-routing","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

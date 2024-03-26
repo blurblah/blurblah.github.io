@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[24724],{10816:a=>{a.exports=JSON.parse('{"label":"cgrect","permalink":"/tags/cgrect","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

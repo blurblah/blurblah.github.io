@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[31414],{19416:a=>{a.exports=JSON.parse('{"label":"paravirtualization","permalink":"/tags/paravirtualization","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

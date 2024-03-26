@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[79283],{88718:a=>{a.exports=JSON.parse('{"label":"rdp","permalink":"/tags/rdp","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

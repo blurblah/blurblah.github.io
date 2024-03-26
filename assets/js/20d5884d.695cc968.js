@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[27436],{4275:e=>{e.exports=JSON.parse('{"label":"dependency-injection","permalink":"/tags/dependency-injection","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[12871],{11594:l=>{l.exports=JSON.parse('{"label":"vpc-link","permalink":"/tags/vpc-link","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

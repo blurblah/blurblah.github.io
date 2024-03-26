@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[16450],{97980:e=>{e.exports=JSON.parse('{"label":"two-tree","permalink":"/tags/two-tree","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

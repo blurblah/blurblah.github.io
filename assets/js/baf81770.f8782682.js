@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[11679],{4272:a=>{a.exports=JSON.parse('{"label":"maas-network","permalink":"/tags/maas-network","allTagsPath":"/tags","count":2,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[920],{17996:a=>{a.exports=JSON.parse('{"label":"aws-api-gateway","permalink":"/tags/aws-api-gateway","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

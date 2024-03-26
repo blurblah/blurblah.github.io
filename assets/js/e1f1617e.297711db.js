@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[3221],{81867:s=>{s.exports=JSON.parse('{"label":"windowsazurediskresizer","permalink":"/tags/windowsazurediskresizer","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

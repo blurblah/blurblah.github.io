@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[79430],{11200:e=>{e.exports=JSON.parse('{"label":"remote","permalink":"/tags/remote","allTagsPath":"/tags","count":2,"unlisted":false}')}}]);

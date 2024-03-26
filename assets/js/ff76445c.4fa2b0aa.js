@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[91548],{33165:a=>{a.exports=JSON.parse('{"label":"ajax","permalink":"/tags/ajax","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

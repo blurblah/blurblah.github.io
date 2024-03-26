@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[18854],{20478:a=>{a.exports=JSON.parse('{"label":"concurrent","permalink":"/tags/concurrent","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

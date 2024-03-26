@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[52186],{2341:e=>{e.exports=JSON.parse('{"label":"request-cpu","permalink":"/tags/request-cpu","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

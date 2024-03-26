@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[81896],{1751:a=>{a.exports=JSON.parse('{"label":"expand-osd","permalink":"/tags/expand-osd","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

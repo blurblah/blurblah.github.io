@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[93161],{4667:e=>{e.exports=JSON.parse('{"label":"head-first-iphone-development","permalink":"/tags/head-first-iphone-development","allTagsPath":"/tags","count":3,"unlisted":false}')}}]);

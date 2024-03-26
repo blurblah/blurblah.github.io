@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[87526],{11901:s=>{s.exports=JSON.parse('{"label":"spp","permalink":"/tags/spp","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

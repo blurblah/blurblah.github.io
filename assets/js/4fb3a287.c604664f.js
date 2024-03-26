@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[15938],{36282:e=>{e.exports=JSON.parse('{"label":"request-memory","permalink":"/tags/request-memory","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

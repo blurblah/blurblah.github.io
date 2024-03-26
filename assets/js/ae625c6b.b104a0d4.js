@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[50345],{3602:l=>{l.exports=JSON.parse('{"label":"xsel","permalink":"/tags/xsel","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

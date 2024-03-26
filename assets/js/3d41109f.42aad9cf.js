@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[40973],{27802:l=>{l.exports=JSON.parse('{"label":"helloworldbuilder","permalink":"/tags/helloworldbuilder","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

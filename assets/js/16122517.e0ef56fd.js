@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[90380],{89573:a=>{a.exports=JSON.parse('{"label":"boostrap","permalink":"/tags/boostrap","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

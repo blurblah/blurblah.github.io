@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[54302],{95387:a=>{a.exports=JSON.parse('{"label":"foursquare","permalink":"/tags/foursquare","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

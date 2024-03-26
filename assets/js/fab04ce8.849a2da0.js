@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[63074],{57172:s=>{s.exports=JSON.parse('{"label":"sudo","permalink":"/tags/sudo","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[43964],{77954:a=>{a.exports=JSON.parse('{"label":"metal-as-a-service","permalink":"/tags/metal-as-a-service","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

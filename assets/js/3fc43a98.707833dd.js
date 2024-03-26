@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[39758],{66961:a=>{a.exports=JSON.parse('{"label":"inheritance","permalink":"/tags/inheritance","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

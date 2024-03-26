@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[53690],{13571:e=>{e.exports=JSON.parse('{"label":"keygen","permalink":"/tags/keygen","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

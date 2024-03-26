@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[17919],{68596:a=>{a.exports=JSON.parse('{"label":"port-forwarding","permalink":"/tags/port-forwarding","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

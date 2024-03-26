@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[38889],{44821:l=>{l.exports=JSON.parse('{"label":"lg-5000p","permalink":"/tags/lg-5000-p","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

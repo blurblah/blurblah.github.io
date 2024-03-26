@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[42295],{99749:e=>{e.exports=JSON.parse('{"permalink":"/tags/jenkins","page":1,"postsPerPage":10,"totalPages":2,"totalCount":11,"nextPage":"/tags/jenkins/page/2","blogDescription":"Blog","blogTitle":"Blog"}')}}]);

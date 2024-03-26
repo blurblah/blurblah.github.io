@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[33868],{13706:a=>{a.exports=JSON.parse('{"label":"rfc-2396","permalink":"/tags/rfc-2396","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

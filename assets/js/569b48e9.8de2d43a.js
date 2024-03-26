@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[68505],{94267:l=>{l.exports=JSON.parse('{"label":"rock-melt","permalink":"/tags/rock-melt","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[19694],{22326:a=>{a.exports=JSON.parse('{"label":"pudding-camera","permalink":"/tags/pudding-camera","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

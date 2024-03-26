@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[99239],{22121:a=>{a.exports=JSON.parse('{"label":"disk-attach","permalink":"/tags/disk-attach","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

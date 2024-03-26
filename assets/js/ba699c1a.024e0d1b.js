@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[37429],{87492:a=>{a.exports=JSON.parse('{"label":"apt-get","permalink":"/tags/apt-get","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

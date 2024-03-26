@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[24973],{32586:a=>{a.exports=JSON.parse('{"label":"geotagging","permalink":"/tags/geotagging","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

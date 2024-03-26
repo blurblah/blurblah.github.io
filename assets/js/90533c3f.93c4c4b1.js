@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[5905],{24342:s=>{s.exports=JSON.parse('{"label":"asus","permalink":"/tags/asus","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

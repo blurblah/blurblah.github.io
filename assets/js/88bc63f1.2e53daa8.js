@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[4616],{66927:a=>{a.exports=JSON.parse('{"label":"uisearchbar","permalink":"/tags/uisearchbar","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

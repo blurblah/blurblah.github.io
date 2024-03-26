@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[34312],{80158:a=>{a.exports=JSON.parse('{"label":"canonicalweburl","permalink":"/tags/canonicalweburl","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

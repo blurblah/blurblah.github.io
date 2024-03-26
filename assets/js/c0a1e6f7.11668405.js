@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[26308],{55307:a=>{a.exports=JSON.parse('{"label":"iphone-app","permalink":"/tags/iphone-app","allTagsPath":"/tags","count":11,"unlisted":false}')}}]);

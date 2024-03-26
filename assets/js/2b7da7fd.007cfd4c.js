@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[47460],{63153:a=>{a.exports=JSON.parse('{"label":"iot","permalink":"/tags/iot","allTagsPath":"/tags","count":2,"unlisted":false}')}}]);

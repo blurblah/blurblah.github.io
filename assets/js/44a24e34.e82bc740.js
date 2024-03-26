@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[85006],{25436:a=>{a.exports=JSON.parse('{"label":"network-io","permalink":"/tags/network-io","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

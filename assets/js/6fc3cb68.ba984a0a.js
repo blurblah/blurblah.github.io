@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[17632],{40894:s=>{s.exports=JSON.parse('{"label":"aws-efs","permalink":"/tags/aws-efs","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

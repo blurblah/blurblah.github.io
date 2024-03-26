@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[19247],{781:a=>{a.exports=JSON.parse('{"label":"haproxy","permalink":"/tags/haproxy","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

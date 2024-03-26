@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[2276],{94846:a=>{a.exports=JSON.parse('{"label":"method-dispatcher","permalink":"/tags/method-dispatcher","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

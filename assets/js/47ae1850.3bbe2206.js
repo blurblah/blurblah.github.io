@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[41910],{75209:a=>{a.exports=JSON.parse('{"label":"iphone4","permalink":"/tags/iphone-4","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

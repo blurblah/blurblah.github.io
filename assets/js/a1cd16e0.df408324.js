@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[37174],{1794:a=>{a.exports=JSON.parse('{"label":"rotate","permalink":"/tags/rotate","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

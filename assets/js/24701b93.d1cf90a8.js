@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[6049],{28202:a=>{a.exports=JSON.parse('{"label":"agile","permalink":"/tags/agile","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[87685],{717:s=>{s.exports=JSON.parse('{"label":"slave-status","permalink":"/tags/slave-status","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

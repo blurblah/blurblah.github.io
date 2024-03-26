@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[45742],{18224:a=>{a.exports=JSON.parse('{"label":"adapter-pattern","permalink":"/tags/adapter-pattern","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

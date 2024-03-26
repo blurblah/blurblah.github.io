@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[95894],{16522:a=>{a.exports=JSON.parse('{"label":"api-gateway","permalink":"/tags/api-gateway","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

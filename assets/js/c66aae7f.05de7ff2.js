@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[37722],{85521:a=>{a.exports=JSON.parse('{"label":"\uac1c\ubc1c","permalink":"/tags/\uac1c\ubc1c","allTagsPath":"/tags","count":2,"unlisted":false}')}}]);

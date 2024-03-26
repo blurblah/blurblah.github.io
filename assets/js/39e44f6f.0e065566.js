@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[96614],{38393:s=>{s.exports=JSON.parse('{"label":"burst-mode","permalink":"/tags/burst-mode","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

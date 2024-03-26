@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[60247],{28851:e=>{e.exports=JSON.parse('{"label":"confluence","permalink":"/tags/confluence","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

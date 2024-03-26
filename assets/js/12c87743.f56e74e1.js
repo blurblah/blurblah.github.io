@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[85994],{24810:a=>{a.exports=JSON.parse('{"label":"groovy","permalink":"/tags/groovy","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

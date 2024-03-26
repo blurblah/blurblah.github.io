@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[90231],{37953:a=>{a.exports=JSON.parse('{"label":"facade-pattern","permalink":"/tags/facade-pattern","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

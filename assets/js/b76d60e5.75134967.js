@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[69128],{3498:e=>{e.exports=JSON.parse('{"permalink":"/tags/iphone-app","page":1,"postsPerPage":10,"totalPages":2,"totalCount":11,"nextPage":"/tags/iphone-app/page/2","blogDescription":"Blog","blogTitle":"Blog"}')}}]);

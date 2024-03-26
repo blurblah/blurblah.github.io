@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[84156],{20949:a=>{a.exports=JSON.parse('{"label":"no-auto-upgrade","permalink":"/tags/no-auto-upgrade","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

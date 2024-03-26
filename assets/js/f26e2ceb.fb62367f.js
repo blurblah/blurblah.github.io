@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[74412],{10109:u=>{u.exports=JSON.parse('{"label":"ubuntu","permalink":"/tags/ubuntu","allTagsPath":"/tags","count":2,"unlisted":false}')}}]);

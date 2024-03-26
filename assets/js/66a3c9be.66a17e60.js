@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[51404],{37108:e=>{e.exports=JSON.parse('{"label":"inqueuesince","permalink":"/tags/inqueuesince","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

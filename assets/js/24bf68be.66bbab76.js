@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[60356],{20789:e=>{e.exports=JSON.parse('{"label":"fisheye","permalink":"/tags/fisheye","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

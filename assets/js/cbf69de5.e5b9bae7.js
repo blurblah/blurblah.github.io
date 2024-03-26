@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[63249],{90011:a=>{a.exports=JSON.parse('{"label":"work-life-balance","permalink":"/tags/work-life-balance","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

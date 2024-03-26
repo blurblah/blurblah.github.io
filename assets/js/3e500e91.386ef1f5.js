@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[80603],{25060:a=>{a.exports=JSON.parse('{"label":"vpn-\ub77c\uc6b0\ud305","permalink":"/tags/vpn-\ub77c\uc6b0\ud305","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[19932],{5309:l=>{l.exports=JSON.parse('{"label":"touchxml","permalink":"/tags/touchxml","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

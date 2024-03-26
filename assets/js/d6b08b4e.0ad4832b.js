@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblurblah_github_io=self.webpackChunkblurblah_github_io||[]).push([[27892],{70794:e=>{e.exports=JSON.parse('{"permalink":"/tags/tweets/page/8","page":8,"postsPerPage":10,"totalPages":11,"totalCount":101,"previousPage":"/tags/tweets/page/7","nextPage":"/tags/tweets/page/9","blogDescription":"Blog","blogTitle":"Blog"}')}}]);
